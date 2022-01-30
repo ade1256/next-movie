@@ -9,14 +9,7 @@ const useTheme = (
   localKey = "theme"
 ) => {
   const dispatch = useDispatch();
-  const [theme, setTheme] = useState(() => {
-    try {
-      const item = window.localStorage.getItem(localKey);
-      return item ? JSON.parse(item) : initialValue;
-    } catch (error) {
-      return initialValue;
-    }
-  });
+  const [theme, setTheme] = useState(initialValue);
 
   useEffect(
     () => {

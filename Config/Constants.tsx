@@ -28,7 +28,8 @@ export default {
       duration: 'Durasi :',
       genre: 'Kategori :',
       rating: 'Peringkat :',
-      starring: 'Dibintangi :'
+      starring: 'Dibintangi :',
+      load_more: 'Muat lebih banyak',
     },
     en: {
       home: "Home",
@@ -48,7 +49,8 @@ export default {
       duration: 'Duration :',
       genre: 'Genre :',
       rating: 'Rating :',
-      starring: 'Starring :'
+      starring: 'Starring :',
+      load_more: 'Load more',
     },
   },
 };

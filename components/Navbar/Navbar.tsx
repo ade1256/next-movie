@@ -9,7 +9,7 @@ import { NavbarWrapper } from "./Navbar.style";
 
 const Navbar: FC = () => {
   const lang = useSelector(getLang);
-  const { theme, changeLanguage } = useTheme({ lang: "en" });
+  const { theme, changeLanguage } = useTheme();
   const router = useRouter();
 
   const getActiveMenu = () => {

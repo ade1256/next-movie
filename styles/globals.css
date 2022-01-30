@@ -25,12 +25,28 @@ a {
   display: inline;
 }
 
-h1,h2,h3,h4,h5,p {
-  margin: 0!important;
-  padding: 0!important;
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .header {
   position: relative;
   margin-bottom: 24px;
+}
+
+.scroll {
+  padding: 8px 16px;
+  border-radius: 100px;
+  background: #001529;
+  color: #fff;
+  width: 300px;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
 }

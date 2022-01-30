@@ -8,32 +8,36 @@ import useFavMovies from "../utils/useFavMovies";
 import { useSelector } from "react-redux";
 import { getLang } from "../redux/themeSlice";
 import Constants from "../Config/Constants";
+import useInfinityScroll from "../utils/useInfinityScroll";
 
 const Home: NextPage = () => {
   const dispatch = useAppDispatch();
-  const movies = useAppSelector((state) => state.movies);
-  const {
-    handleAddFavourite,
-    handleRemoveFavourite,
-    isLiked,
-  } = useFavMovies([]);
+  const { valueInfinityScroll } = useInfinityScroll({
+    fetching: false,
+    totalLoad: 10,
+  });
 
-  const lang = useSelector(getLang)
+  const movies = useAppSelector((state) => state.movies);
+  const { handleAddFavourite, handleRemoveFavourite, isLiked } = useFavMovies(
+    []
+  );
+
+  const lang = useSelector(getLang);
 
   const _renderMovies = () => {
     let elements = [] as any;
 
-    movies.data.map((movie, index) => {
+    for (let index = 0; index < valueInfinityScroll.totalLoad; index++) {
       elements.push(
         <MovieCard
           key={index}
-          movie={movie}
+          movie={movies.data[index]}
           addFavourite={handleAddFavourite}
           removeFavourite={handleRemoveFavourite}
           isLiked={isLiked}
         />
       );
-    });
+    }
 
     return elements;
   };
@@ -55,7 +59,14 @@ const Home: NextPage = () => {
       {movies.status === "loading" ? (
         <div>Loading...</div>
       ) : (
-        <div className="movies-section">{_renderMovies()}</div>
+        <div className="movies-section" id="movies">
+          {_renderMovies()}
+          {valueInfinityScroll.totalLoad !== movies.data.length && (
+            <div style={{textAlign: 'center', width: '100%'}}>
+              <div className="scroll">{Constants.MESSAGE[lang].load_more}</div>
+            </div>
+          )}
+        </div>
       )}
     </>
   );

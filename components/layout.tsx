@@ -33,7 +33,7 @@ const LayoutComponent: FC<LayoutProps> = ({ children }) => {
             {children}
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>
+        <Footer style={{ textAlign: "center" }} id="footer">
           Ade Prasetyo &copy; 2022 All right reserved
         </Footer>
       </Layout>
