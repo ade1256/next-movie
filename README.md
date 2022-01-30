@@ -4,7 +4,7 @@ Test coding to create 3 web pages (list page, detail page, and favourite page)
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## #Demo
-you can see the live result on this link [http://localhost:3000](http://localhost:3000)
+you can see the live result on this link [https://next-movie-eta.vercel.app](https://next-movie-eta.vercel.app)
 
 ## #Installation
 
