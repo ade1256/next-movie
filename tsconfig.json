@@ -13,8 +13,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "noImplicitAny": false
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/layout.tsx", "components/index.tsx"],
+  "exclude": ["node_modules"],
+  "experimental": {
+    // Enables the styled-components SWC transform
+    "styledComponents": true
+  }
 }

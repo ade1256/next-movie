@@ -14,3 +14,23 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.movies-section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movies-section h2 {
+  width: 100%;
+  display: inline;
+}
+
+h1,h2,h3,h4,h5,p {
+  margin: 0!important;
+  padding: 0!important;
+}
+
+.header {
+  position: relative;
+  margin-bottom: 24px;
+}
