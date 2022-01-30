@@ -2,7 +2,7 @@
 import { Col, Row } from "antd";
 import moment from "moment";
 import { NextSeo } from "next-seo";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Assets from "../../Assets";
 import { PopupImage } from "../../components";
@@ -17,11 +17,29 @@ function MoviePage({ movie }) {
 
   const togglePopup = () => {
     setIsShow(!isShow);
-  }
+  };
+
+  const escFunction = useCallback((event) => {
+    if (event.keyCode === 27) {
+      setIsShow(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("keydown", escFunction, false);
+
+    return () => {
+      document.removeEventListener("keydown", escFunction, false);
+    };
+  }, []);
 
   return (
     <MovieWrapper>
-      <PopupImage isShow={isShow} src={movie.data.imageLargeUrl} handleToggle={togglePopup} />
+      <PopupImage
+        isShow={isShow}
+        src={movie.data.imageLargeUrl}
+        handleToggle={togglePopup}
+      />
       <NextSeo
         title={`${Constants.MESSAGE[lang].title_seo}${movie.data.title} (${movie.data.year})`}
         description={movie.data.desc}
