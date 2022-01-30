@@ -5,6 +5,7 @@ import Constants from "../../Config/Constants";
 import useTheme from "../../utils/useTheme";
 import { useSelector } from "react-redux";
 import { getLang } from "../../redux/themeSlice";
+import { NextSeo } from "next-seo";
 
 const FavouritePage: NextPage = () => {
   const {
@@ -35,6 +36,10 @@ const FavouritePage: NextPage = () => {
 
   return (
     <div>
+      <NextSeo
+        title={`${Constants.MESSAGE[lang].favourites}`}
+        description={Constants.MESSAGE[lang].favourites}
+      />
       {favourites.length === 0 ? (
         <div className="movies-section">
           <h2>{Constants.MESSAGE[`${lang}`].empty}</h2>

@@ -1,6 +1,12 @@
+### BNC Front End Web Engineer Technical Test
+
+Test coding to create 3 web pages (list page, detail page, and favourite page)
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## #Demo
+you can see the live result on this link [http://localhost:3000](http://localhost:3000)
+
+## #Installation
 
 First, run the development server:
 
@@ -12,23 +18,48 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## #Technology Used
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+On this repository, contains reactjs with typescript or tsx, and i'm using :
+ - styled-components : for creating style scss to each component
+ - next-seo : for implement seo each page
+ - antd : is a library design
+ - redux : management state
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## #Custom Hooks
+I made a several custom hooks
 
-## Learn More
+##### 1. useInfinityScroll
+To detect user when scrolling reach at bottom page, it will load more movies
 
-To learn more about Next.js, take a look at the following resources:
+#### 2. useFavMovie
+To manage favourite movies, saved on `localStorage`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### 3. useTheme
+to manage theme, like example change language between English and Bahasa Indonesia
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## #Components
+I made a several re-usable components
+#### 1.MovieCard
+to show card movie
+you can use with this props
+```
+movie: {
+    id: number;
+    title: string;
+    rating: number;
+    year: number;
+    imageUrl: string;
+  };
+  addFavourite: (movie: any) => void;
+  removeFavourite: (movie: any) => void;
+  isLiked: (movie: any) => boolean;
+  ```
+  
+  #### 2.PopupImage
+  Defined props
+  ```
+  src: string;
+  isShow: boolean;
+  handleToggle: () => void;
+  ```

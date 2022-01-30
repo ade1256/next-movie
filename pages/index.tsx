@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { getLang } from "../redux/themeSlice";
 import Constants from "../Config/Constants";
 import useInfinityScroll from "../utils/useInfinityScroll";
+import { NextSeo } from "next-seo";
 
 const Home: NextPage = () => {
   const dispatch = useAppDispatch();
@@ -52,6 +53,10 @@ const Home: NextPage = () => {
   }, []);
   return (
     <>
+      <NextSeo
+        title={`${Constants.MESSAGE[lang].home}`}
+        description={Constants.MESSAGE[lang].home}
+      />
       <div className="header">
         <h4>{Constants.MESSAGE[`${lang}`].welcome}</h4>
         <p>{Constants.MESSAGE[`${lang}`].welcome_desc}</p>
@@ -62,7 +67,7 @@ const Home: NextPage = () => {
         <div className="movies-section" id="movies">
           {_renderMovies()}
           {valueInfinityScroll.totalLoad !== movies.data.length && (
-            <div style={{textAlign: 'center', width: '100%'}}>
+            <div style={{ textAlign: "center", width: "100%" }}>
               <div className="scroll">{Constants.MESSAGE[lang].load_more}</div>
             </div>
           )}
