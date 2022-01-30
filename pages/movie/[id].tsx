@@ -45,12 +45,12 @@ function MoviePage({ movie }) {
         description={movie.data.desc}
       />
       <Row gutter={24}>
-        <Col span={4}>
+        <Col xs={24} md={4}>
           <div className="poster" onClick={() => togglePopup()}>
             <img src={movie.data.imageUrl} alt={movie.data.title} />
           </div>
         </Col>
-        <Col span={14}>
+        <Col md={14} xs={24}>
           <h4>
             {movie.data.title} ({movie.data.year})
           </h4>
