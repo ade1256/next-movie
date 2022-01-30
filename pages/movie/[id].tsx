@@ -6,10 +6,10 @@ import { useCallback, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Assets from "../../Assets";
 import { PopupImage } from "../../components";
+import { MovieWrapper } from "../../components/movie.style";
 import Constants from "../../Config/Constants";
 import { getLang } from "../../redux/themeSlice";
 import { GET_MOVIE } from "../../services/moviesAPI";
-import { MovieWrapper } from "./movie.style";
 
 function MoviePage({ movie }) {
   const [isShow, setIsShow] = useState(false);
